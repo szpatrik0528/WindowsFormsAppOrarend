@@ -59,6 +59,7 @@
             this.textBox_nev.Name = "textBox_nev";
             this.textBox_nev.Size = new System.Drawing.Size(100, 20);
             this.textBox_nev.TabIndex = 1;
+            this.textBox_nev.Text = "Lajos";
             // 
             // textBox_jelszo
             // 
@@ -66,6 +67,7 @@
             this.textBox_jelszo.Name = "textBox_jelszo";
             this.textBox_jelszo.Size = new System.Drawing.Size(100, 20);
             this.textBox_jelszo.TabIndex = 1;
+            this.textBox_jelszo.Text = "1234";
             // 
             // button_login
             // 
@@ -88,7 +90,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormLogin";
-            this.Text = " ";
+            this.Text = "Bejelentkezés";
             this.ResumeLayout(false);
             this.PerformLayout();
 

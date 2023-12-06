@@ -67,24 +67,27 @@ namespace WindowsFormsAppOrarend
                     userId = reader.GetInt32("jelszo");
                 }
                 userId = reader.GetInt32("jelszo");
-                
+                zar();
             }
             return userId;
-            zar();
         }
 
-        public List<Orak> getTanorak()
+        public List<Orak> getTanorak(string hetnapja)
         {
             nyit(); 
             List<Orak> orak = new List<Orak>();
-            command.CommandText = "SELECT `tantargy`, `sorszam`, `hetnapja` FROM `orak` ORDER BY tantargy";
+            command.CommandText = "SELECT `oraid`, `tantargy`, `sorszam`, `hetnapja` FROM `orak` WHERE `hetnapja` = @hetnapja";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@hetnapja", hetnapja);
             using (MySqlDataReader dr = command.ExecuteReader())
             {
                 while (dr.Read())
                 {
-                    orak.Add(new Orak(dr.GetString("tantargy"), dr.GetInt32("sorszam"), dr.GetString("hetnapja"));
+                    orak.Add(new Orak(dr.GetInt32("oraid"), dr.GetString("tantargy"), dr.GetInt32("sorszam"), dr.GetString("hetnapja")));
                 }
             }
+            return orak;
         }
+
     }
 }
